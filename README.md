@@ -14,7 +14,7 @@ Just run the main file and you'll be ready to go
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Support
-Open [Issues](https://https://github.com/BingoCaller2020/bingocaller/issues) and create a report form
+Open [Issues](https://github.com/BingoCaller2020/bingocaller/issues) and create a report form
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
