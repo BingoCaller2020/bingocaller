@@ -123,10 +123,10 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
                                           break
                             
                             #When all numbers are called...
-                                   numberOfGoesAsString = str(numberOfRounds)
-                                   print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
-                                   sleep(0.5)
-                                   print('Thank you for playing Bingo Caller')
+                                          numberOfGoesAsString = str(numberOfRounds)
+                                          print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
+                                          sleep(0.5)
+                                          print('Thank you for playing Bingo Caller')
 
                      #Actually runs the game
                      begin()
