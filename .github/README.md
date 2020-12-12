@@ -4,7 +4,7 @@ Bingo Caller is a Python based program that will call numbers in a Bingo style w
 
 ## Installation
 
-Download and run the .exe file, this will guide you through the rest
+Download and run the .exe installer file, this will guide you through the rest
 
 ## Usage
 
