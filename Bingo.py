@@ -6,8 +6,8 @@ import os
 import ctypes
 import urllib.request
 import requests
-version = '7.0.0'
-build = '7.0.0|0158'
+version = '7.0.1'
+build = '7.0.1|0005'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 
 print('Welcome to Bingo Caller version ' + version)
@@ -51,7 +51,10 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
        if retrievedUpdateBuild > build:
               print('There is a new build available')
               sleep(1)
-              print('The build update will include minor fixes but nothing major')
+              print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
+              sleep(1)
+              print('The build update will include minor improvements and security fixes')
+              sleep(2)
               downloadBuild = input('Click Enter to contine')
               sleep(1)
               print('Beginning file download ...')
@@ -144,4 +147,4 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
 
                      if again == 'x':
                             print ('Goodbye and thanks for playing Bingo Caller ' + version + '!')
-                            sleep(2)
+                            sleep(1.21)
