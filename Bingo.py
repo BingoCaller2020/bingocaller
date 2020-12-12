@@ -7,7 +7,7 @@ import ctypes
 import urllib.request
 import requests
 version = '7.0.1'
-build = '7.0.1|0005'
+build = '7.0.1|0052'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 
 print('Welcome to Bingo Caller version ' + version)
@@ -104,7 +104,7 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
                             #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
                             if ready >= '':
                             #The game has started, and a variable is declared as a random number between 0 and 90
-                                          nextNumber = randint(0,90)
+                                          nextNumber = randint(1,90)
                             #A list is created for numbers already called to go in
                                           alreadyCalled = []
                             #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
@@ -122,17 +122,17 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
                                           input("Press Enter to view the next drawn number")
                                           x +=1
                             #Ends the loop when conditions met
-                                   else:
-                                          break
-                            
-                            #When all numbers are called...
+                                   else:  
                                           numberOfGoesAsString = str(numberOfRounds)
                                           print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
                                           sleep(0.5)
                                           print('Thank you for playing Bingo Caller')
+                                          break
 
                      #Actually runs the game
                      begin()
+                     
+                     print('Your selected amount of numbers have been called')
                      #Asks if they want to play again
                      again = input('Would you like to play again? Enter \'Y\' for yes and \'X\' to exit: ')
                      #Loops until valid input
