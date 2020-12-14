@@ -7,7 +7,7 @@ import ctypes
 import urllib.request
 import requests
 version = '7.0.1'
-build = '7.0.1|0055'
+build = '7.0.1|0059'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 
 print('Welcome to Bingo Caller version ' + version)
@@ -67,7 +67,7 @@ elif licencingFile == ('c808143d00122c50825b457b6229c5089e45f573949b35bee59e961b
               print('No build updates available')
               sleep(2)     
               print('Would you like to contact support?')
-              questionEmail = input('Enter \'T\' for ticket, \'E\' for email or \'N\' for nothing: ')
+              questionEmail = input('Enter \'T\' for GitHub ticket, \'E\' for email or \'N\' for nothing: ')
               recipient = 'support@bingocaller.rf.gd'
               subject = 'Bingo Caller App Support'
               if questionEmail == 't':
