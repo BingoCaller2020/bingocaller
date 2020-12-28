@@ -8,9 +8,9 @@ import urllib.request
 import requests
 import platform
 version = '7.0.1'
-build = '7.0.1|0254'
+build = '7.0.1|0275'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
-
+#Welcome
 print('Welcome to Bingo Caller version ' + version)
 sleep(1)
 print('After you type a value, press Enter to submit it.')
@@ -20,11 +20,13 @@ write = str(platform.system()) + ' ' + str(platform.architecture()) +  ' ' + str
 licencingFile= open('C:\\Bingo Caller\\licencing.txt', "w+")
 licencingFile.write(write)
 licencingFile.close()
+#Build updater
 print('Checking for build updates')
 sleep(2)
 with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/updates.html') as f:
        retrievedUpdateBuild = f.read().decode('utf-8')
 if retrievedUpdateBuild > build:
+       #New build available
        print('There is a new build available')
        sleep(1)
        print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
@@ -39,17 +41,32 @@ if retrievedUpdateBuild > build:
        open('C:\\Bingo Caller\\Bingo_Caller_Upgrade.exe', 'wb').write(r.content)         
        openFile = input('Press Enter to start the installation wizard')
        os.startfile("C:\\Bingo Caller\\Bingo_Caller_Upgrade")
-else:  
+elif retrievedUpdateBuild < build:
+       #New version available
+       print('Major build is available')
+       sleep(1)
+       print('Please run the updater to upgrade')
+       sleep(1)
+       print('Would you like to run the updater?')
+       update = input('Enter \'Y\' for Yes and \'N\' for No ')
+       sleep(1)
+       if update == 'y':
+              os.startfile("C:\\Program Files (x86)\\Bingo Caller\\Updater.exe")
+       elif update == 'n':
+              exit
+elif retrievedUpdateBuild == build:
+       #No build available
        print('No build updates available')
        sleep(2)     
        print('Would you like to contact support?')
-       questionEmail = input('Enter \'T\' for GitHub ticket, \'E\' for email or \'N\' for nothing: ')
+       #Support
+       questionEmail = input('Enter \'T\' for ticket creation, \'E\' for email or \'N\' for nothing: ')
        recipient = 'support@bingocaller.rf.gd'
        subject = 'Bingo Caller App Support'
        if questionEmail == 't':
-              webbrowser.open('https://github.com/BingoCaller2020/bingocaller/issues/new/choose')
+              webbrowser.open('https://desk.zoho.eu/portal/bingocaller/en/newticket')
        elif questionEmail == 'e':
-              webbrowser.open('mailto:support@bingocaller.rf.gd', new=2)
+              webbrowser.open('mailto:support@bingocaller.zohodesk.eu', new=2)
        elif questionEmail == 'n':
               def begin():
                      try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
