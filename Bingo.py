@@ -7,8 +7,8 @@ import ctypes
 import urllib.request
 import requests
 import platform
-version = '7.0.1'
-build = '7.0.1|0275'
+version = '7.0.2'
+build = '0011'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 #Welcome
 print('Welcome to Bingo Caller version ' + version)
