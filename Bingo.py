@@ -1,4 +1,4 @@
-#Importing functions
+#Importing function
 from random import randint
 from time import sleep
 import webbrowser
@@ -8,7 +8,7 @@ import urllib.request
 import requests
 import platform
 version = '7.0.2'
-build = '0011'
+build = '0012'
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 #Welcome
 print('Welcome to Bingo Caller version ' + version)
@@ -64,7 +64,7 @@ elif retrievedUpdateBuild == build:
        recipient = 'support@bingocaller.rf.gd'
        subject = 'Bingo Caller App Support'
        if questionEmail == 't':
-              webbrowser.open('https://desk.zoho.eu/portal/bingocaller/en/newticket')
+              webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
        elif questionEmail == 'e':
               webbrowser.open('mailto:support@bingocaller.zohodesk.eu', new=2)
        elif questionEmail == 'n':
