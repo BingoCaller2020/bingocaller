@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "Bingo Caller Colours/1.0.2": {
+        "runtime": {
+          "Bingo Caller Colours.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bingo Caller Colours/1.0.2": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
