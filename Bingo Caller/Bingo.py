@@ -13,7 +13,7 @@ version = '8.1.2'
 build = '86'
 #Main Program
 def exitProgram():
-        os.startfile("C:\\Program Files (x86)\\Bingo Caller\\bin\kill.bat")
+        os.startfile("C:\\Program Files (x86)\\Bingo Caller\\bin\\kill.bat")
 def versionChecker():
         print('Please wait...')
         sleep(0.25)
