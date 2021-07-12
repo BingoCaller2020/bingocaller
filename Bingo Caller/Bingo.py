@@ -19,7 +19,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '8.1.3'
-build = '171'
+build = '361'
 
 #Open .bat to kill all tasks
 def exitProgram():
@@ -265,10 +265,12 @@ if colour == 'y':
                 program()
                 ending()      
                 exitProgram()
-elif colour != 'n' or colour != 'y':
-        print("Error")
-        program()
 elif colour == 'n':
         program()
         ending()
         exitProgram()
+else:
+        print("Error. Invalid keystroke entered. Error code 0x636F6C6F7572")
+        viewError = input("To view the errors on our website click \'Y\' for yes and \'N\' for no")
+        if viewError == 'y' or viewError == 'Y':
+                webbrowser.open('https://bingocaller.me/support/desktop-app/colour.html')
