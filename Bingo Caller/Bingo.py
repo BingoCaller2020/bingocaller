@@ -19,7 +19,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '45'
-build = '8'
+build = '11'
 
 def dotNet():
         f = open("C:\\Bingo Caller\\keepfile.txt", "r+", encoding="utf-8")
@@ -114,7 +114,7 @@ def reRun():
 def program():
         #Build updater
         versionChecker()
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/updates.html') as f:
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net') as f:
                 retrievedUpdateBuild = f.read().decode('utf-8')
         if retrievedUpdateBuild > build:
                 #New build available
