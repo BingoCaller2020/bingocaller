@@ -18,12 +18,13 @@ today = date.today()
 calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at the door - 4", "Man alive - 5", "Half a dozen - 6", "Lucky for some - 7", "Garden gate - 8", "Brighton Line - 9", "Boris' Den - 10", "Legs eleven - 11", "One dozen - 12", "Unlucky for some - 13", "Valentine's Day - 14", "Young and keen - 15", "Never been kissed - 16", "Dancing Queens - 17", "Coming of age - 18", "Goodbye teens - 19", "One Score - 20", "Key of the door - 21", "Two little ducks - 22", "The Lord is my shepard - 23", "Two dozen - 24", "Duck and dive - 25", "Half a crown - 26", "Duck and a crutch - 27", "In a state - 28", "Rise and shine - 29", "Dirty Gertie - 30", "Get up and run - 31", "Buckle my shoe - 32", "Dirty knee - 33", "Ask for more - 34", "Jump and jive - 35", "Three dozen - 36", "More than eleven - 37", "Christmas cake - 38", "Steps - 39", "Life begins - 40", "Time for fun - 41", "Winnie the Pooh - 42", "Down on your knees - 43", "Droopy Drawers - 44", "Halfway there - 45", "Up to tricks - 46", "Four and seven - 47", "Four dozen - 48", "PC - 49", "It's a bullseye! - 50", "Tweak of the thumb - 51", "Chicken Vindaloo - 52", "Stuck in the tree - 53", "Man at the door - 54", "All the fives - 55", "Shotts bus - 56", "Heinz Varieties - 57", "Make them wait - 58", "Brighton Line - 59", "Grandma's getting frisky - 60", "Bakers bun - 61", "Tickety-Boo - 62", "Tickle me - 63", "Almost retired - 64", "Retirement age - 65", "Clickety click - 66", "Stairway to Heaven - 67", "Pick a mate - 68", "Anyway up - 69", "Three score and ten - 70", "Bang on the drum - 71", "Danny La Rue - 72", "Queen bee - 73", "Hit the floor - 74", "Strive and strive - 75", "Trombones - 76", "Two little crutches - 77", "Heaven's gate - 78", "One more time - 79", "Ghandi's breakfast - 80", "Stop and run - 81", "Straight on through - 82", "Time for tea - 83", "Give me more - 84", "Staying alive - 85", "Between the sticks - 86", "Torquay in Devon - 87", "Two fat ladies - 88", "Nearly there - 89", "Top of the shop - 90"]
 
 #Version and build numbers
-version = '47'
-build = '5'
+version = '9.0.0'
+build = '1'
 
 #Open .bat to kill all tasks
 def exitProgram():
-        os.startfile("C:\\Program Files\\Bingo Caller\\kill.bat")
+        exit()
+        #os.startfile("C:\\Program Files\\Bingo Caller\\kill.bat")
 
 #Defining the version checker
 def versionChecker():
@@ -102,15 +103,17 @@ def reRun():
 def program():
         #Build updater
         versionChecker()
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
+                retrievedVersion = f.read().decode('utf-8')
         with urllib.request.urlopen('https://bingocallerapp.htmlsave.net') as f:
                 retrievedUpdateBuild = f.read().decode('utf-8')
-        if retrievedUpdateBuild > build:
+        if retrievedUpdateBuild > build and retrievedVersion >= version:
                 #New build available
-                print('There is a new build update available')
+                print('There is a new minor update available')
                 sleep(1)
                 print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
                 sleep(1)
-                print('The build update will include small, minor improvements')
+                print('The update will include small improvements')
                 sleep(2)
                 downloadBuild = input('Click Enter to continue with the update')
                 sleep(1)
@@ -142,7 +145,7 @@ def program():
                 openFile = input('Press Enter to start the installation wizard')
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup")
                 exitProgram()
-        elif retrievedUpdateBuild == build:
+        elif retrievedUpdateBuild == build or retrievedVersion < version:
                 #No build available    
                 print('Would you like to contact support?')
                 #Support
@@ -227,7 +230,7 @@ def ending():
                 again = input('Invalid input. Enter \'Y\' for yes and \'X\' to exit: ')
 
         if again == 'x':
-                print ('Goodbye, and thank you for playing Bingo Caller ' + version + '!')
+                print ('Goodbye, and thank you for playing Bingo Caller!')
                 sleep(1.21)  
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 #Welcome
@@ -240,36 +243,6 @@ print('Welcome to Bingo Caller version ' + version)
 sleep(1)
 print('After you type a value, press Enter to submit it.')
 sleep(1)
-#Colour picking
-print('Would you like to change the colour of this console window?')
-colour = input('Enter \'Y\' for yes and \'N\' for no: ')
-if colour == 'y':
-        print('Do you know what colour would you like the console to change to?')
-        yesColour = input('Enter \'Y\' for yes and \'N\' for no: ')
-        if yesColour == 'n':
-                # C# Program
-                openColourSite = input("Press the 'Enter' key to view the possible colour choices")
-                os.startfile("C:\\Program Files\\Bingo Caller\\C#\\Bingo Caller Colours.exe")
-                exitProgram()
-        elif yesColour == 'y':
-                #Taking Colour
-                colourPick=input('Enter the two numbers displayed on the previous program with NO spaces and click \'Enter\': ')
-                sleep(1)
-                print('Input accepted')
-                sleep(1)
-                print('Changing colour now')
-                sleep(1.5)
-                os.system('color ' + colourPick)
-                sleep(0.5)
-                program()
-                ending()      
-                exitProgram()
-elif colour == 'n':
-        program()
-        ending()
-        exitProgram()
-else:
-        print("Error. Invalid keystroke entered. Error code 0x636F6C6F7572")
-        viewError = input("To view the errors on our website click \'Y\' for yes and \'N\' for no")
-        if viewError == 'y' or viewError == 'Y':
-                webbrowser.open('https://www.bingocaller.me/support/desktop-app')
+program()
+ending()      
+exitProgram()
