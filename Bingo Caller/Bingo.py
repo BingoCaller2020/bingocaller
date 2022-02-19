@@ -19,7 +19,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.0.0'
-build = '1'
+build = 'beta 2'
 
 #Open .bat to kill all tasks
 def exitProgram():
@@ -28,11 +28,10 @@ def exitProgram():
 
 #Defining the version checker
 def versionChecker():
-        print('Please wait...')
+        print('Checking for updates...')
         sleep(0.25)
         with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
                 retrievedVersion = f.read().decode('utf-8')
-        print('Program initialising')
         sleep(1)
         if retrievedVersion > version:
                 print('New major update is available')
@@ -103,22 +102,21 @@ def reRun():
 def program():
         #Build updater
         versionChecker()
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
-                retrievedVersion = f.read().decode('utf-8')
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net') as f:
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/beta.html') as f:
                 retrievedUpdateBuild = f.read().decode('utf-8')
-        if retrievedUpdateBuild > build and retrievedVersion >= version:
+        if retrievedUpdateBuild > build:
                 #New build available
-                print('There is a new minor update available')
+                #print('There is a new minor update available')
+                print('There is a new update available')
                 sleep(1)
-                print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
-                sleep(1)
-                print('The update will include small improvements')
+                #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
+                print('You are running ' + build + ' and the latest version is ' + retrievedUpdateBuild)
                 sleep(2)
                 downloadBuild = input('Click Enter to continue with the update')
                 sleep(1)
                 print('Beginning file download ...')
-                url = 'https://bcd.rf.gd/main/'
+                #url = 'https://bcd.rf.gd/main/'
+                url = 'https://bcd.rf.gd/beta/'
                 r = requests.get(url, allow_redirects=True)
                 print("10%")
                 sleep(0.5)
@@ -145,7 +143,7 @@ def program():
                 openFile = input('Press Enter to start the installation wizard')
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup")
                 exitProgram()
-        elif retrievedUpdateBuild == build or retrievedVersion < version:
+        elif retrievedUpdateBuild == build:
                 #No build available    
                 print('Would you like to contact support?')
                 #Support
