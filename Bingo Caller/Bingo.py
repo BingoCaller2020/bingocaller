@@ -19,28 +19,12 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.0.0'
-build = 'build 6'
+build = 'build 8'
 
 #Open .bat to kill all tasks
 def exitProgram():
         #exit()
         os.startfile("C:\\Program Files\\Bingo Caller\\kill.bat")
-
-#Defining the version checker
-""" def versionChecker():
-        print('Checking for updates...')
-        sleep(0.25)
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
-                retrievedVersion = f.read().decode('utf-8')
-        sleep(1)
-        if retrievedVersion > version:
-                print('New major update is available')
-                openWeb = input("Press enter to download the latest version from our website ")
-                webbrowser.open('https://bingocaller.me/re-grab/main/')
-                exitProgram()
-        else:
-                return
-        return """
 
 #Defining the task if the user wants to play again
 def reRun():
@@ -48,7 +32,7 @@ def reRun():
         except ValueError:
                 numberOfRounds = int(input('Please enter a valid number '))
         numberOfRoundsAsString = str(numberOfRounds)
-#Checks if the user is happy with the amount of numbers being called in the game
+        #Checks if the user is happy with the amount of numbers being called in the game
         confimRounds = input('Are you sure you want to have ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
         #Loops until valid input
         while confimRounds != 'y' and confimRounds != 'n':
@@ -99,12 +83,23 @@ def reRun():
         numberOfGoesAsString = str(numberOfRounds)
         print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
         sleep(0.5) 
-def program():
-        #Build updater
-        #versionChecker()
+
+def updater():
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
+                retrievedVersion = f.read().decode('utf-8')
         with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/') as f:
                 retrievedUpdateBuild = f.read().decode('utf-8')
-        if retrievedUpdateBuild != build:
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/beta.html') as f:
+                retrievedUpdateBuildBeta = f.read().decode('utf-8')
+        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/betaversion.html') as f:
+                retrievedBetaVersion = f.read().decode('utf-8')
+        if retrievedVersion > version:
+                print('New major update is available')
+                openWeb = input("Press enter to download the latest version from our website ")
+                webbrowser.open('https://bingocaller.me/re-grab/main/')
+                exitProgram()
+
+        elif retrievedUpdateBuild > build and retrievedVersion == version:
                 #New build available
                 #print('There is a new minor update available')
                 print('There is a new update available')
@@ -115,13 +110,9 @@ def program():
                 downloadBuild = input('Click Enter to continue with the update')
                 sleep(1)
                 print('Beginning file download ...')
-
-                
-                #url = 'http://bcd.rf.gd/main/'
                 url = 'https://github.com/BingoCaller2020/bingocaller/raw/main/Bingo_Caller_Setup.exe'
                 r = requests.get(url, allow_redirects=True)
                 open('C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb').write(r.content)
-
                 print("10%")
                 sleep(0.5)
                 print("20%")
@@ -146,301 +137,120 @@ def program():
                 openFile = input('Press Enter to start the installation wizard')
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
                 exitProgram()
-        elif retrievedUpdateBuild == build:
-            with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/betaversion.html') as f:
-                retrievedVersion = f.read().decode('utf-8')
-            with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/beta.html') as f:
-                retrievedUpdateBuildBeta = f.read().decode('utf-8')
-            if retrievedUpdateBuildBeta > build or retrievedVersion != version:
+
+        elif retrievedUpdateBuildBeta != build and retrievedBetaVersion > version:
                 print('There is a new beta update available')
                 sleep(1)
                 #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
-                print('You are running Version ' + version + ' ' + build + ' and the latest version is Version ' + retrievedVersion + ' ' + retrievedUpdateBuildBeta)
+                print('You are running Version ' + version + ' ' + build + ' and the latest version is Version ' + retrievedBetaVersion + ' ' + retrievedUpdateBuildBeta)
                 sleep(2)
                 print('Would you like to install the beta update?')
                 sleep(1)
                 downloadBeta = input('Enter \'Y\' for yes and \'N\' for no: ')
                 if downloadBeta == 'y' or downloadBeta == 'Y':
-                    print('Would you like to contact support?')
-                    #Support
-                    support = input('Enter \'Y\' for yes or \'N\' for no: ')
-                    if support == 'y' or support == 'Y':
-                            questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
-                            if questionEmail == 't' or questionEmail == 'T':
-                                    webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
-                                    exitProgram()
-                            elif questionEmail == 'e' or questionEmail == 'E':
-                                    webbrowser.open('mailto:support@bingocaller.me', new=2)
-                                    exitProgram()
-                    elif support == 'n' or support == 'N': 
-
-                            try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
-                            except ValueError:
-                                    numberOfRounds = int(input('Please enter a valid number '))
-                            numberOfRoundsAsString = str(numberOfRounds)
-                    #Checks if the user is happy with the amount of numbers being called in the game
-                            confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                            #Loops until valid input
-                            while confimRounds != 'y' and confimRounds != 'n':
-                                    
-                                    confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                            #Loops until user sure about number of rounds
-                            while confimRounds == 'n' or confimRounds == 'N':
-                                    try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
-                                    except ValueError:
-                                            numberOfRounds = int(input('Please enter a valid number '))
-                                    numberOfRoundsAsString = str(numberOfRounds)
-                                    confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                            while confimRounds != 'y' and confimRounds != 'n':
-                                    confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                            #If happy, the loops end, and the code contines
-                            if confimRounds == 'y' or confimRounds == 'Y':
-                                    print('Lets play some bingo!')
-                                    ready = input('Press Enter to get your first number, and after every number called: ')
-                            #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
-                            if ready >= '':
-                            #The game has started, and a variable is declared as a random number between 0 and 90
-                                            nextNumber = random.choice(calls)
-                            #A list is created for numbers already called to go in
-                                            alreadyCalled = []
-                            #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
-                                            x = 0
-                                            actRound=numberOfRounds
-                            while x < numberOfRounds:
-                            #The number is reset if it has already been called; x stays the same
-                                    if nextNumber in alreadyCalled:
-                                                    nextNumber = random.choice(calls)
-                                                    
-                            #If the number hasn't been called, then it is included in the list, printed, and reset.
-                                    elif nextNumber not in alreadyCalled:
-                                            alreadyCalled.append(nextNumber)
-                                            print (nextNumber)
-                                            nextNumber = random.choice(calls)
-                                            actRound -=1
-                                            print('You have ' + str(actRound) + ' goes left')
-                                            input("\n")
-                                            x +=1
-                            #Ends the loop when conditions met
-                                    else:  
-
-                                            break
-                            numberOfGoesAsString = str(numberOfRounds)
-                            print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
-                            sleep(0.5)
-                else:
-                    sleep(1)
-                    print('\n')
-                    print('Would you like to contact support?')
-                    #Support
-                    support = input('Enter \'Y\' for yes or \'N\' for no: ')
-                    if support == 'y' or support == 'Y':
-                            questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
-                            if questionEmail == 't' or questionEmail == 'T':
-                                    webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
-                                    exitProgram()
-                            elif questionEmail == 'e' or questionEmail == 'E':
-                                    webbrowser.open('mailto:support@bingocaller.me', new=2)
-                                    exitProgram()
-                    elif support == 'n' or support == 'N': 
-
-                            try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
-                            except ValueError:
-                                    numberOfRounds = int(input('Please enter a valid number '))
-                            numberOfRoundsAsString = str(numberOfRounds)
-                    #Checks if the user is happy with the amount of numbers being called in the game
-                            confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                            #Loops until valid input
-                            while confimRounds != 'y' and confimRounds != 'n':
-                                    
-                                    confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                            #Loops until user sure about number of rounds
-                            while confimRounds == 'n' or confimRounds == 'N':
-                                    try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
-                                    except ValueError:
-                                            numberOfRounds = int(input('Please enter a valid number '))
-                                    numberOfRoundsAsString = str(numberOfRounds)
-                                    confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                            while confimRounds != 'y' and confimRounds != 'n':
-                                    confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                            #If happy, the loops end, and the code contines
-                            if confimRounds == 'y' or confimRounds == 'Y':
-                                    print('Lets play some bingo!')
-                                    ready = input('Press Enter to get your first number, and after every number called: ')
-                            #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
-                            if ready >= '':
-                            #The game has started, and a variable is declared as a random number between 0 and 90
-                                            nextNumber = random.choice(calls)
-                            #A list is created for numbers already called to go in
-                                            alreadyCalled = []
-                            #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
-                                            x = 0
-                                            actRound=numberOfRounds
-                            while x < numberOfRounds:
-                            #The number is reset if it has already been called; x stays the same
-                                    if nextNumber in alreadyCalled:
-                                                    nextNumber = random.choice(calls)
-                                                    
-                            #If the number hasn't been called, then it is included in the list, printed, and reset.
-                                    elif nextNumber not in alreadyCalled:
-                                            alreadyCalled.append(nextNumber)
-                                            print (nextNumber)
-                                            nextNumber = random.choice(calls)
-                                            actRound -=1
-                                            print('You have ' + str(actRound) + ' goes left')
-                                            input("\n")
-                                            x +=1
-                            #Ends the loop when conditions met
-                                    else:  
-
-                                            break
-                            numberOfGoesAsString = str(numberOfRounds)
-                            print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
-                            sleep(0.5)
-            else:
-                sleep(1)
-                print('\n')
-                print('Would you like to contact support?')
-                #Support
-                support = input('Enter \'Y\' for yes or \'N\' for no: ')
-                if support == 'y' or support == 'Y':
-                        questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
-                        if questionEmail == 't' or questionEmail == 'T':
-                                webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
-                                exitProgram()
-                        elif questionEmail == 'e' or questionEmail == 'E':
-                                webbrowser.open('mailto:support@bingocaller.me', new=2)
-                                exitProgram()
-                elif support == 'n' or support == 'N': 
-
-                        try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
-                        except ValueError:
-                                numberOfRounds = int(input('Please enter a valid number '))
-                        numberOfRoundsAsString = str(numberOfRounds)
-                #Checks if the user is happy with the amount of numbers being called in the game
-                        confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                        #Loops until valid input
-                        while confimRounds != 'y' and confimRounds != 'n':
-                                
-                                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                        #Loops until user sure about number of rounds
-                        while confimRounds == 'n' or confimRounds == 'N':
-                                try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
-                                except ValueError:
-                                        numberOfRounds = int(input('Please enter a valid number '))
-                                numberOfRoundsAsString = str(numberOfRounds)
-                                confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                        while confimRounds != 'y' and confimRounds != 'n':
-                                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                        #If happy, the loops end, and the code contines
-                        if confimRounds == 'y' or confimRounds == 'Y':
-                                print('Lets play some bingo!')
-                                ready = input('Press Enter to get your first number, and after every number called: ')
-                        #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
-                        if ready >= '':
-                        #The game has started, and a variable is declared as a random number between 0 and 90
-                                        nextNumber = random.choice(calls)
-                        #A list is created for numbers already called to go in
-                                        alreadyCalled = []
-                        #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
-                                        x = 0
-                                        actRound=numberOfRounds
-                        while x < numberOfRounds:
-                        #The number is reset if it has already been called; x stays the same
-                                if nextNumber in alreadyCalled:
-                                                nextNumber = random.choice(calls)
-                                                
-                        #If the number hasn't been called, then it is included in the list, printed, and reset.
-                                elif nextNumber not in alreadyCalled:
-                                        alreadyCalled.append(nextNumber)
-                                        print (nextNumber)
-                                        nextNumber = random.choice(calls)
-                                        actRound -=1
-                                        print('You have ' + str(actRound) + ' goes left')
-                                        input("\n")
-                                        x +=1
-                        #Ends the loop when conditions met
-                                else:  
-
-                                        break
-                        numberOfGoesAsString = str(numberOfRounds)
-                        print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
+                        print('Beginning file download ...')
+                        url = 'https://bingocallerapp.s3.eu-west-2.amazonaws.com/versions/Bingo_Caller_Setup.exe'
+                        r = requests.get(url, allow_redirects=True)
+                        open('C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb').write(r.content)
+                        print("10%")
                         sleep(0.5)
-        elif retrievedUpdateBuild == build:
-                #No build available    
-                print('Would you like to contact support?')
-                #Support
-                support = input('Enter \'Y\' for yes or \'N\' for no: ')
-                if support == 'y' or support == 'Y':
-                        questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
-                        if questionEmail == 't' or questionEmail == 'T':
-                                webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
-                                exitProgram()
-                        elif questionEmail == 'e' or questionEmail == 'E':
-                                webbrowser.open('mailto:support@bingocaller.me', new=2)
-                                exitProgram()
-                elif support == 'n' or support == 'N': 
+                        print("20%")
+                        sleep(0.5)
+                        print("30%")
+                        sleep(0.5)
+                        print("40%")
+                        sleep(0.5)
+                        print("50%")
+                        sleep(0.5)
+                        print("60%")
+                        sleep(0.5)
+                        print("70%")
+                        sleep(0.5)
+                        print("80%")
+                        sleep(0.5)
+                        print("90%")
+                        sleep(0.5)
+                        print("100%")
+                        sleep(0.5)
+                        print("Unpacking, please wait.")    
+                        openFile = input('Press Enter to start the installation wizard')
+                        os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
+                        exitProgram()
+                else:
+                        print('\n')
+                        return
+        else:
+                return
+def program():
+        #No build available    
+        print('Would you like to contact support?')
+        #Support
+        support = input('Enter \'Y\' for yes or \'N\' for no: ')
+        if support == 'y' or support == 'Y':
+                questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
+                if questionEmail == 't' or questionEmail == 'T':
+                        webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
+                        exitProgram()
+                elif questionEmail == 'e' or questionEmail == 'E':
+                        webbrowser.open('mailto:support@bingocaller.me', new=2)
+                        exitProgram()
+        elif support == 'n' or support == 'N': 
 
-                        try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
+                try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
+                except ValueError:
+                        numberOfRounds = int(input('Please enter a valid number '))
+                numberOfRoundsAsString = str(numberOfRounds)
+        #Checks if the user is happy with the amount of numbers being called in the game
+                confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
+                #Loops until valid input
+                while confimRounds != 'y' and confimRounds != 'n':
+                        
+                        confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+
+                #Loops until user sure about number of rounds
+                while confimRounds == 'n' or confimRounds == 'N':
+                        try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
                         except ValueError:
                                 numberOfRounds = int(input('Please enter a valid number '))
                         numberOfRoundsAsString = str(numberOfRounds)
-                #Checks if the user is happy with the amount of numbers being called in the game
                         confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                        #Loops until valid input
-                        while confimRounds != 'y' and confimRounds != 'n':
-                                
-                                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+                while confimRounds != 'y' and confimRounds != 'n':
+                        confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
 
-                        #Loops until user sure about number of rounds
-                        while confimRounds == 'n' or confimRounds == 'N':
-                                try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
-                                except ValueError:
-                                        numberOfRounds = int(input('Please enter a valid number '))
-                                numberOfRoundsAsString = str(numberOfRounds)
-                                confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
-                        while confimRounds != 'y' and confimRounds != 'n':
-                                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
-
-                        #If happy, the loops end, and the code contines
-                        if confimRounds == 'y' or confimRounds == 'Y':
-                                print('Lets play some bingo!')
-                                ready = input('Press Enter to get your first number, and after every number called: ')
-                        #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
-                        if ready >= '':
-                        #The game has started, and a variable is declared as a random number between 0 and 90
+                #If happy, the loops end, and the code contines
+                if confimRounds == 'y' or confimRounds == 'Y':
+                        print('Lets play some bingo!')
+                        ready = input('Press Enter to get your first number, and after every number called: ')
+                #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
+                if ready >= '':
+                #The game has started, and a variable is declared as a random number between 0 and 90
+                                nextNumber = random.choice(calls)
+                #A list is created for numbers already called to go in
+                                alreadyCalled = []
+                #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
+                                x = 0
+                                actRound=numberOfRounds
+                while x < numberOfRounds:
+                #The number is reset if it has already been called; x stays the same
+                        if nextNumber in alreadyCalled:
                                         nextNumber = random.choice(calls)
-                        #A list is created for numbers already called to go in
-                                        alreadyCalled = []
-                        #A while loop is initiated, so long a x is less than the number of rounds inputted on line 17
-                                        x = 0
-                                        actRound=numberOfRounds
-                        while x < numberOfRounds:
-                        #The number is reset if it has already been called; x stays the same
-                                if nextNumber in alreadyCalled:
-                                                nextNumber = random.choice(calls)
-                                                
-                        #If the number hasn't been called, then it is included in the list, printed, and reset.
-                                elif nextNumber not in alreadyCalled:
-                                        alreadyCalled.append(nextNumber)
-                                        print (nextNumber)
-                                        nextNumber = random.choice(calls)
-                                        actRound -=1
-                                        print('You have ' + str(actRound) + ' goes left')
-                                        input("\n")
-                                        x +=1
-                        #Ends the loop when conditions met
-                                else:  
+                                        
+                #If the number hasn't been called, then it is included in the list, printed, and reset.
+                        elif nextNumber not in alreadyCalled:
+                                alreadyCalled.append(nextNumber)
+                                print (nextNumber)
+                                nextNumber = random.choice(calls)
+                                actRound -=1
+                                print('You have ' + str(actRound) + ' goes left')
+                                input("\n")
+                                x +=1
+                #Ends the loop when conditions met
+                        else:  
 
-                                        break
-                        numberOfGoesAsString = str(numberOfRounds)
-                        print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
-                        sleep(0.5) 
+                                break
+                numberOfGoesAsString = str(numberOfRounds)
+                print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
+                sleep(0.5) 
 
 def ending():
         #Asks if they want to play again
@@ -460,15 +270,11 @@ def ending():
                 sleep(1.21)  
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 #Welcome
-current_time = now.strftime("%H:%M:%S")
-d4 = today.strftime("%b-%d-%Y")
-print("The current time is " + current_time + " on " + d4)
-print("\n")
-sleep(1.75)
 print('Welcome to Bingo Caller version ' + version)
 sleep(1)
 print('After you type a value, press Enter to submit it.')
 sleep(1)
+updater()
 program()
 ending()      
 exitProgram()
