@@ -19,7 +19,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.1.0'
-build = 'build 1'
+build = 'build 2'
 
 #Open .bat to kill all tasks
 def exitProgram():
@@ -96,7 +96,7 @@ def updater():
         if retrievedVersion > version:
                 print('New major update is available')
                 openWeb = input("Press enter to download the latest version from our website ")
-                webbrowser.open('https://bingocaller.me/re-grab/main/')
+                webbrowser.open('https://www.bingocaller.me/main')
                 exitProgram()
 
         elif retrievedUpdateBuild > build and retrievedVersion == version:
