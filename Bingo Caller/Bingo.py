@@ -12,12 +12,12 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.2.0'
-build = 'beta 1'
+build = 'beta 2'
 
 #Open .bat to kill all tasks
 def exitProgram():
         #exit()
-        os.startfile("C:\\Program Files\\Bingo Caller\\kill.bat")
+        os.startfile("C:\\Program Files (x86)\\Bingo Caller\\bin\\kill.bat")
 
 #Defining the task if the user wants to play again
 def reRun():
