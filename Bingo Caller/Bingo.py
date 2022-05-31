@@ -12,7 +12,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.2.0'
-build = 'beta 2'
+build = 'beta 3'
 
 #Open .bat to kill all tasks
 def exitProgram():
@@ -133,7 +133,7 @@ def updater():
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
                 exitProgram()
 
-        elif retrievedUpdateBuildBeta != build and retrievedBetaVersion > version:
+        elif retrievedUpdateBuildBeta != build and retrievedBetaVersion >= version:
                 print('There is a new beta update available')
                 sleep(1)
                 #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
