@@ -12,7 +12,7 @@ calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at t
 
 #Version and build numbers
 version = '9.2.0'
-build = 'beta 3'
+build = 'build 4'
 
 #Open .bat to kill all tasks
 def exitProgram():
