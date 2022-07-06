@@ -11,8 +11,8 @@ import requests
 calls = ["Kelly's Eye - 1", "One little duck - 2", "Cup of tea - 3", "Knock at the door - 4", "Man alive - 5", "Half a dozen - 6", "Lucky for some - 7", "Garden gate - 8", "Doctor's Orders - 9", "Boris' Den - 10", "Legs eleven - 11", "One dozen - 12", "Unlucky for some - 13", "Valentine's Day - 14", "Young and keen - 15", "Never been kissed - 16", "Dancing Queens - 17", "Coming of age - 18", "Goodbye teens - 19", "One Score - 20", "Royal Salyute - 21", "Two little ducks - 22", "Thee and me - 23", "Two dozen - 24", "Duck and dive - 25", "Half a crown - 26", "Duck and a crutch - 27", "In a state - 28", "Rise and shine - 29", "Dirty Gertie - 30", "Get up and run - 31", "Buckle my shoe - 32", "Dirty knee - 33", "Ask for more - 34", "Jump and jive - 35", "Three dozen - 36", "More than eleven - 37", "Christmas cake - 38", "Steps - 39", "Life begins - 40", "Time for fun - 41", "Winnie the Pooh - 42", "Down on your knees - 43", "Droopy Drawers - 44", "Halfway there - 45", "Up to tricks - 46", "Four and seven - 47", "Four dozen - 48", "PC - 49", "It's a bullseye! - 50", "Tweak of the thumb - 51", "Chicken Vindaloo - 52", "Stuck in the tree - 53", "Man at the door - 54", "All the fives - 55", "Shotts bus - 56", "Heinz Varieties - 57", "Make them wait - 58", "Brighton Line - 59", "Grandma's getting frisky - 60", "Bakers bun - 61", "Tickety-Boo - 62", "Tickle me - 63", "Almost retired - 64", "Retirement age - 65", "Clickety click - 66", "Stairway to Heaven - 67", "Pick a mate - 68", "Anyway up - 69", "Three score and ten - 70", "Bang on the drum - 71", "Danny La Rue - 72", "Queen bee - 73", "Hit the floor - 74", "Strive and strive - 75", "Trombones - 76", "Two little crutches - 77", "Heaven's gate - 78", "One more time - 79", "Eight and blank - 80", "Stop and run - 81", "Straight on through - 82", "Time for tea - 83", "Give me more - 84", "Staying alive - 85", "Between the sticks - 86", "Torquay in Devon - 87", "Two fat ladies - 88", "Nearly there - 89", "Top of the shop - 90"]
 
 #Version and build numbers
-version = '9.2.0'
-build = 'build 4'
+version = '9.2.1'
+build = 'build 7'
 
 #Open .bat to kill all tasks
 def exitProgram():
@@ -21,31 +21,31 @@ def exitProgram():
 
 #Defining the task if the user wants to play again
 def reRun():
-        try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
+        try: numberOfRounds = int(input("How many numbers would you like generated for this round: "))
         except ValueError:
-                numberOfRounds = int(input('Please enter a valid number '))
+                numberOfRounds = int(input("Please enter a valid number "))
         numberOfRoundsAsString = str(numberOfRounds)
         #Checks if the user is happy with the amount of numbers being called in the game
-        confimRounds = input('Are you sure you want to have ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
+        confimRounds = input("Are you sure you want to have ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
         #Loops until valid input
         while confimRounds != 'y' and confimRounds != 'n':
                 
-                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+                confimRounds = input("Invalid input. Enter \'Y\' for yes and \'N\' for no: ")
 
         #Loops until user sure about number of rounds
         while confimRounds == 'n' or confimRounds == 'N':
-                try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
+                try: numberOfRounds = int(input("How many numbers would you like generated for this game? "))
                 except ValueError:
-                        numberOfRounds = int(input('Please enter a valid number '))
+                        numberOfRounds = int(input("Please enter a valid number "))
                 numberOfRoundsAsString = str(numberOfRounds)
-                confimRounds = input('Are you sure you want to have ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
+                confimRounds = input("Are you sure you want to have ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
         while confimRounds != 'y' and confimRounds != 'n':
-                confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+                confimRounds = input("Invalid input. Enter \'Y\' for yes and \'N\' for no: ")
 
         #If happy, the loops end, and the code contines
         if confimRounds == 'y' or confimRounds == 'Y':
-                print('Lets play bingo!')
-                ready = input('Press Enter to get your first number, and again after every number called: ')
+                print("Lets play bingo!")
+                ready = input("Press Enter to get your first number, and again after every number called: ")
         #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
         if ready >= '':
         #The game has started, and a variable is declared as a random number between 0 and 90
@@ -66,7 +66,7 @@ def reRun():
                         print (nextNumber)
                         nextNumber = random.choice(calls)
                         actRound -=1
-                        print('You have got ' + str(actRound) + ' goes left')
+                        print("You have got ' + str(actRound) + ' goes left")
                         input("\n")
                         x +=1
         #Ends the loop when conditions met
@@ -74,79 +74,74 @@ def reRun():
 
                         break
         numberOfGoesAsString = str(numberOfRounds)
-        print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
+        print ("You have reached your selected amount of ' + numberOfGoesAsString + ' goes.")
         sleep(0.5) 
 
 def updater():
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/version.html') as f:
-                retrievedVersion = f.read().decode('utf-8')
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net') as f:
-                retrievedUpdateBuild = f.read().decode('utf-8')
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/beta.html') as f:
-                retrievedUpdateBuildBeta = f.read().decode('utf-8')
-        with urllib.request.urlopen('https://bingocallerapp.htmlsave.net/betaversion.html') as f:
-                retrievedBetaVersion = f.read().decode('utf-8')
+        with urllib.request.urlopen("https://bingocallerapp.htmlsave.net/version.html") as f:
+                retrievedVersion = f.read().decode("utf-8")
+        with urllib.request.urlopen("https://bingocallerapp.htmlsave.net") as f:
+                retrievedUpdateBuild = f.read().decode("utf-8")
+        with urllib.request.urlopen("https://bingocallerapp.htmlsave.net/beta.html") as f:
+                retrievedUpdateBuildBeta = f.read().decode("utf-8")
+        with urllib.request.urlopen("https://bingocallerapp.htmlsave.net/betaversion.html") as f:
+                retrievedBetaVersion = f.read().decode("utf-8")
         if retrievedVersion > version:
                 #New build available
-                #print('There is a new minor update available')
-                print('There is a new update available')
+                #print("There is a new minor update available")
+                print("There is a new update available")
                 sleep(1)
-                #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
-                print('You are running ' + build + ' and the latest version is ' + retrievedUpdateBuild)
+                #print("You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
+                print("You are running " + build + " and the latest version is " + retrievedUpdateBuild)
                 sleep(2)
-                downloadBuild = input('Click Enter to continue with the update')
+                input("Click Enter to continue with the update")
                 sleep(1)
-                print('Beginning file download ...')
+                print("Beginning file download ...")
                 url = 'https://bingocallerapp.s3.eu-west-2.amazonaws.com/Main+Files/Bingo_Caller_Setup.exe'
                 r = requests.get(url, allow_redirects=True)
-                open('C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb').write(r.content)
+                open("C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb").write(r.content)
                 print("Downloading...")
                 sleep(1)
                 print("Unpacking, please wait.")    
-                openFile = input('Press Enter to start the installation wizard')
+                input("Press Enter to start the installation wizard")
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
                 exitProgram()
-                
-                """ print('New major update is available')
-                openWeb = input("Press enter to download the latest version from our website ")
-                webbrowser.open('https://www.bingocaller.me/main')
-                exitProgram() """
 
         elif retrievedUpdateBuild > build and retrievedVersion == version:
                 #New build available
-                #print('There is a new minor update available')
-                print('There is a new update available')
+                #print("There is a new minor update available")
+                print("There is a new update available")
                 sleep(1)
-                #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
-                print('You are running ' + build + ' and the latest version is ' + retrievedUpdateBuild)
+                #print("You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
+                print("You are running " + build + " and the latest version is " + retrievedUpdateBuild)
                 sleep(2)
-                downloadBuild = input('Click Enter to continue with the update')
+                input("Click Enter to continue with the update")
                 sleep(1)
-                print('Beginning file download ...')
+                print("Beginning file download ...")
                 url = 'https://bingocallerapp.s3.eu-west-2.amazonaws.com/Main+Files/Bingo_Caller_Setup.exe'
                 r = requests.get(url, allow_redirects=True)
-                open('C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb').write(r.content)
+                open("C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb").write(r.content)
                 print("Downloading...")
                 sleep(1)
                 print("Unpacking, please wait.")    
-                openFile = input('Press Enter to start the installation wizard')
+                input("Press Enter to start the installation wizard")
                 os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
                 exitProgram()
 
         elif retrievedUpdateBuildBeta != build and retrievedBetaVersion >= version:
-                print('There is a new beta update available')
+                print("There is a new beta update available")
                 sleep(1)
-                #print('You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
-                print('You are running Version ' + version + ' ' + build + ' and the latest version is Version ' + retrievedBetaVersion + ' ' + retrievedUpdateBuildBeta)
+                #print("You are running build ' + build + ' and the latest is build ' + retrievedUpdateBuild)
+                print("You are running Version " + version + " " + build + " and the latest version is Version " + retrievedBetaVersion + " " + retrievedUpdateBuildBeta)
                 sleep(2)
-                print('Would you like to install the beta update?')
+                print("Would you like to install the beta update?")
                 sleep(1)
-                downloadBeta = input('Enter \'Y\' for yes and \'N\' for no: ')
+                downloadBeta = input("Enter \'Y\' for yes and \'N\' for no: ")
                 if downloadBeta == 'y' or downloadBeta == 'Y':
-                        print('Beginning file download ...')
+                        print("Beginning file download ...")
                         url = 'https://bingocallerapp.s3.eu-west-2.amazonaws.com/versions/Bingo_Caller_Setup.exe'
                         r = requests.get(url, allow_redirects=True)
-                        open('C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb').write(r.content)
+                        open("C:\\Bingo Caller\\Bingo_Caller_Setup.exe', 'wb").write(r.content)
                         print("10%")
                         sleep(0.5)
                         print("20%")
@@ -168,54 +163,54 @@ def updater():
                         print("100%")
                         sleep(0.5)
                         print("Unpacking, please wait.")    
-                        openFile = input('Press Enter to start the installation wizard')
+                        input("Press Enter to start the installation wizard")
                         os.startfile("C:\\Bingo Caller\\Bingo_Caller_Setup.exe")
                         exitProgram()
                 else:
-                        print('\n')
+                        print("\n")
                         return
         else:
                 return
 def program():
         #No build available    
-        print('Would you like to contact support?')
+        print("Would you like to contact support?")
         #Support
-        support = input('Enter \'Y\' for yes or \'N\' for no: ')
+        support = input("Enter \'Y\' for yes or \'N\' for no: ")
         if support == 'y' or support == 'Y':
-                questionEmail = input('Enter \'T\' for ticket creation or \'E\' for email: ')
+                questionEmail = input("Enter \'T\' for ticket creation or \'E\' for email: ")
                 if questionEmail == 't' or questionEmail == 'T':
-                        webbrowser.open('https://bingocaller.atlassian.net/servicedesk/customer/portal/2')
+                        webbrowser.open("https://bcd.rf.gd/support/")
                         exitProgram()
                 elif questionEmail == 'e' or questionEmail == 'E':
-                        webbrowser.open('mailto:support@bingocaller.me', new=2)
+                        webbrowser.open("mailto:support@bingocaller.me", new=2)
                         exitProgram()
         elif support == 'n' or support == 'N': 
 
-                try: numberOfRounds = int(input('How many numbers would you like generated for this round: '))
+                try: numberOfRounds = int(input("How many numbers would you like generated for this round: "))
                 except ValueError:
-                        numberOfRounds = int(input('Please enter a valid number '))
+                        numberOfRounds = int(input("Please enter a valid number "))
                 numberOfRoundsAsString = str(numberOfRounds)
         #Checks if the user is happy with the amount of numbers being called in the game
-                confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
+                confimRounds = input("Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
                 #Loops until valid input
                 while confimRounds != 'y' and confimRounds != 'n':
                         
-                        confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+                        confimRounds = input("Invalid input. Enter \'Y\' for yes and \'N\' for no: ")
 
                 #Loops until user sure about number of rounds
                 while confimRounds == 'n' or confimRounds == 'N':
-                        try: numberOfRounds = int(input('How many numbers would you like generated for this game? '))
+                        try: numberOfRounds = int(input("How many numbers would you like generated for this game? "))
                         except ValueError:
-                                numberOfRounds = int(input('Please enter a valid number '))
+                                numberOfRounds = int(input("Please enter a valid number "))
                         numberOfRoundsAsString = str(numberOfRounds)
-                        confimRounds = input('Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ')
+                        confimRounds = input("Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
                 while confimRounds != 'y' and confimRounds != 'n':
-                        confimRounds = input('Invalid input. Enter \'Y\' for yes and \'N\' for no: ')
+                        confimRounds = input("Invalid input. Enter \'Y\' for yes and \'N\' for no: ")
 
                 #If happy, the loops end, and the code contines
                 if confimRounds == 'y' or confimRounds == 'Y':
-                        print('Lets play bingo!')
-                        ready = input('Press Enter to get your first number, and after every number called: ')
+                        print("Lets play bingo!")
+                        ready = input("Press Enter to get your first number, and after every number called: ")
                 #To start the game, the user can hit Enter. Any other value is also accepted to avoid errors.
                 if ready >= '':
                 #The game has started, and a variable is declared as a random number between 0 and 90
@@ -236,7 +231,7 @@ def program():
                                 print (nextNumber)
                                 nextNumber = random.choice(calls)
                                 actRound -=1
-                                print('You have ' + str(actRound) + ' goes left')
+                                print("You have ' + str(actRound) + ' goes left")
                                 input("\n")
                                 x +=1
                 #Ends the loop when conditions met
@@ -244,30 +239,30 @@ def program():
 
                                 break
                 numberOfGoesAsString = str(numberOfRounds)
-                print ('You have reached your selected amount of ' + numberOfGoesAsString + ' goes.')
+                print ("You have reached your selected amount of ' + numberOfGoesAsString + ' goes.")
                 sleep(0.5) 
 
 def ending():
         #Asks if they want to play again
-        again = input('Would you like to play Bingo Caller again? Enter \'Y\' for yes and \'X\' to exit: ')
+        again = input("Would you like to play Bingo Caller again? Enter \'Y\' for yes and \'X\' to exit: ")
         #Loops until valid input
         while again != 'y' and again != 'x':
-                again = input('Invalid input. Enter \'Y\' for yes and \'X\' to exit: ')
+                again = input("Invalid input. Enter \'Y\' for yes and \'X\' to exit: ")
         #The game loops until the user declares 'x'
         while again == 'y':
                 reRun()
-                again = input('Would you like to play Bingo Caller again? Enter \'Y\' for yes and \'X\' to exit: ')
+                again = input("Would you like to play Bingo Caller again? Enter \'Y\' for yes and \'X\' to exit: ")
         while again != 'y' and again != 'x':
-                again = input('Invalid input. Enter \'Y\' for yes and \'X\' to exit: ')
+                again = input("Invalid input. Enter \'Y\' for yes and \'X\' to exit: ")
 
         if again == 'x':
-                print ('Goodbye, and thank you for playing Bingo Caller!')
+                print ("Goodbye, and thank you for playing Bingo Caller!")
                 sleep(1.21)  
 ctypes.windll.kernel32.SetConsoleTitleW("Bingo Caller " + version)
 #Welcome
-print('Welcome to Bingo Caller version ' + version)
+print("Welcome to Bingo Caller version " + version)
 sleep(1)
-print('After you type a value, press Enter to submit it.')
+print("After you type a value, press Enter to submit it.")
 sleep(1)
 updater()
 program()
