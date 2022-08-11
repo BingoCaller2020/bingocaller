@@ -191,7 +191,7 @@ def program():
                         numberOfRounds = int(input("Please enter a valid number "))
                 numberOfRoundsAsString = str(numberOfRounds)
         #Checks if the user is happy with the amount of numbers being called in the game
-                confimRounds = input("Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
+                confimRounds = input("Are you sure you want " + numberOfRoundsAsString + " goes? Enter \'Y\' for yes and \'N\' for no: ")
                 #Loops until valid input
                 while confimRounds != 'y' and confimRounds != 'n':
                         
@@ -203,7 +203,7 @@ def program():
                         except ValueError:
                                 numberOfRounds = int(input("Please enter a valid number "))
                         numberOfRoundsAsString = str(numberOfRounds)
-                        confimRounds = input("Are you sure you want ' + numberOfRoundsAsString + ' goes? Enter \'Y\' for yes and \'N\' for no: ")
+                        confimRounds = input("Are you sure you want " + numberOfRoundsAsString + " goes? Enter \'Y\' for yes and \'N\' for no: ")
                 while confimRounds != 'y' and confimRounds != 'n':
                         confimRounds = input("Invalid input. Enter \'Y\' for yes and \'N\' for no: ")
 
@@ -239,7 +239,7 @@ def program():
 
                                 break
                 numberOfGoesAsString = str(numberOfRounds)
-                print ("You have reached your selected amount of ' + numberOfGoesAsString + ' goes.")
+                print ("You have reached your selected amount of " + numberOfGoesAsString + " goes.")
                 sleep(0.5) 
 
 def ending():
