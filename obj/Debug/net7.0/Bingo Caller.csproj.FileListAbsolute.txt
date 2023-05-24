@@ -1,0 +1,15 @@
+C:\Users\andre\source\repos\Bingo Caller\bin\Debug\net7.0\Bingo Caller.exe
+C:\Users\andre\source\repos\Bingo Caller\bin\Debug\net7.0\Bingo Caller.deps.json
+C:\Users\andre\source\repos\Bingo Caller\bin\Debug\net7.0\Bingo Caller.runtimeconfig.json
+C:\Users\andre\source\repos\Bingo Caller\bin\Debug\net7.0\Bingo Caller.dll
+C:\Users\andre\source\repos\Bingo Caller\bin\Debug\net7.0\Bingo Caller.pdb
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.csproj.AssemblyReference.cache
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.AssemblyInfoInputs.cache
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.AssemblyInfo.cs
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.csproj.CoreCompileInputs.cache
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.dll
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\refint\Bingo Caller.dll
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.pdb
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\Bingo Caller.genruntimeconfig.cache
+C:\Users\andre\source\repos\Bingo Caller\obj\Debug\net7.0\ref\Bingo Caller.dll
