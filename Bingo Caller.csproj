@@ -6,6 +6,14 @@
     <RootNamespace>Bingo_Caller</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ApplicationIcon>program.ico</ApplicationIcon>
+    <Title>Bingo Caller</Title>
+    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <Version>10.0.0</Version>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="program.ico" />
+  </ItemGroup>
 
 </Project>

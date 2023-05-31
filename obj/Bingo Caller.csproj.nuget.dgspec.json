@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\andre\\source\\repos\\Bingo Caller\\Bingo Caller.csproj": {}
+    "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj": {}
   },
   "projects": {
-    "C:\\Users\\andre\\source\\repos\\Bingo Caller\\Bingo Caller.csproj": {
-      "version": "1.0.0",
+    "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj": {
+      "version": "10.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\andre\\source\\repos\\Bingo Caller\\Bingo Caller.csproj",
+        "projectUniqueName": "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj",
         "projectName": "Bingo Caller",
-        "projectPath": "C:\\Users\\andre\\source\\repos\\Bingo Caller\\Bingo Caller.csproj",
+        "projectPath": "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj",
         "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\andre\\source\\repos\\Bingo Caller\\obj\\",
+        "outputPath": "D:\\Files\\Documents\\GitHub\\bingocaller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\andre\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
