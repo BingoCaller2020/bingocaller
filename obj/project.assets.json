@@ -14,7 +14,7 @@
     "version": "10.0.0",
     "restore": {
       "projectUniqueName": "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj",
-      "projectName": "Bingo Caller",
+      "projectName": "BingoCaller",
       "projectPath": "D:\\Files\\Documents\\GitHub\\bingocaller\\Bingo Caller.csproj",
       "packagesPath": "C:\\Users\\andre\\.nuget\\packages\\",
       "outputPath": "D:\\Files\\Documents\\GitHub\\bingocaller\\obj\\",

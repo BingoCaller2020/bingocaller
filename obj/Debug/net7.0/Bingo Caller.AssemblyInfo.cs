@@ -13,6 +13,7 @@ using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Bingo Caller")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("2020-2023 - Andrew Jolley")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("10.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("10.0.0")]
 [assembly: System.Reflection.AssemblyProductAttribute("Bingo Caller")]

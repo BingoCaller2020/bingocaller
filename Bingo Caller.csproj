@@ -8,8 +8,11 @@
     <Nullable>enable</Nullable>
     <ApplicationIcon>program.ico</ApplicationIcon>
     <Title>Bingo Caller</Title>
-    <GeneratePackageOnBuild>False</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Version>10.0.0</Version>
+    <Copyright>2020-2023 - Andrew Jolley</Copyright>
+    <PackageId>BingoCaller</PackageId>
+    <PackageLicenseExpression>Apache-2.0 </PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
