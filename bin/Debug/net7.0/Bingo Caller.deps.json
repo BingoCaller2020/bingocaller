@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Bingo Caller/10.0.0": {
+        "runtime": {
+          "Bingo Caller.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Bingo Caller/10.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
